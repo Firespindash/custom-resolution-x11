@@ -6,7 +6,7 @@ then
     exit 
 fi
 
-resolution="1920 989"
+resolution="1920 989"  # set the custom resolution here.
 
 printf "Before using this script make sure you have xrandr and cvt installed. \n"
 printf "And write the resolution you want in the variable 'resolution' of the script. \n\n" && sleep 5
