@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Author: Firespindash
+# License: MIT
+
 if [[ $EUID != 0 ]] 
 then
     printf "Please run as root user.\n"
