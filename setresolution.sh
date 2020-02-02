@@ -20,14 +20,6 @@ monitor=$(xrandr | grep " connected " | awk '{ print$1 }')
 
 printf "Detecting resolution...\n"
 
-actualresolution=$(xrandr | grep "*" | awk '{ print$1 }')
-
-if [[ $actualresolution -eq $resolution ]]
-then
-    printf "Your resolution is the same that you are already using. \n"
-    exit
-fi
-
 preferredresolution=$(cvt $resolution | grep Modeline | cut -d '"' -f2 | cut -d'_' -f1)
 
 fix_resolution() { cvt $resolution | grep Modeline | cut -f2 | cut -d'_' -f1; }
