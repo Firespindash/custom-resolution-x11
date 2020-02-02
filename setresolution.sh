@@ -71,3 +71,4 @@ printf "Making file executable...\n\n"
 chmod +x fixscreen.sh
 
 printf "Now put the fixscreen.sh file in the initalization of your graphical system.\n"
+printf "Then reboot your machine. \n"
