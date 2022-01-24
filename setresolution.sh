@@ -52,13 +52,14 @@ xrandr --output $monitor --mode $preferredresolution 2> /dev/null
 
 printf "Generating command on file...\n"
 
-sudo echo '#!/bin/bash' > ./fixscreen.sh
-sudo echo '' >> ./fixscreen.sh
-sudo echo "xrandr --output $monitor --mode $preferredresolution" >> ./fixscreen.sh
+echo '#!/bin/bash' > fixscreen.sh
+echo '' >> fixscreen.sh
+echo "xrandr --output $monitor --mode $preferredresolution" >> fixscreen.sh
 
 printf "Making file executable...\n\n"
 
 chmod +x fixscreen.sh
+chown $USER:$USER fixscreen.sh
 
 printf "Now put the fixscreen.sh file in the initalization of your graphical system.\n"
 printf "Then reboot your machine. \n"
