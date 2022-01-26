@@ -7,16 +7,13 @@ xorgpath="/etc/X11/xorg.conf.d"
 
 [ $EUID != 0 ] && { printf "Please run as root user.\n"; exit; }
 
-command -v xrandr > /dev/null
-[ $? -eq 0 ] || { printf "This script needs xrandr to run.\n"; exit; }
-command -v cvt > /dev/null
-[ $? -eq 0 ] || { echo "This script needs cvt to run."; exit; }
+command -v xrandr > /dev/null || { printf "This script needs xrandr to run.\n"; exit; }
+command -v cvt > /dev/null || { echo "This script needs cvt to run."; exit; }
 
 read -p "Choose the custom resolution you want? [1920x989] " resolution
 [ "$resolution" ] && resolution="${resolution/x/ }" || resolution="1920 989"
 
-cvt $resolution > /dev/null 2> /dev/null
-[ $? -eq 0 ] || { echo "Not a valid input."; exit; }
+cvt $resolution > /dev/null 2> /dev/null || { echo "Not a valid input."; exit; }
 
 printf "Detecting monitor name...\n"
 
